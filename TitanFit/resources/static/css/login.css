@@ -1,0 +1,97 @@
+/* General reset */
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+}
+
+body {
+        font-family: 'Poppins', sans-serif; /* Default font for the body */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f2f5;
+
+}
+    .center{
+        background-color: rgba(255, 255, 255, 0.8);
+        padding:40px;
+        text-align: center;
+        width: 300px;
+        height: auto; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+    }
+
+/* Banner styling */
+.banner {
+    background-color: #383838; ;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.banner h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px; /* Increased banner font size */
+    color: white;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif; /* Heading font */
+    color: #333;
+    font-size: 22px; /* Reduced Login h1 font size */
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 14px;
+    color: #666;
+}
+
+
+    #username, #password{
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        margin-bottom:10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+
+    button {
+        width: 100%;
+        padding : 10px;
+        background: linear-gradient(135deg, #b0b0b0, #a0a0a0);
+        color :#383838;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: large;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Button shadow for pop */
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 45px;
+    }
+
+    button:hover {
+        background: linear-gradient(135deg, #a0a0a0, #909090); /* Darker gradient on hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    }
+
+    a {
+        color: #383838;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+
+    #forgot {
+        margin-bottom: 7px;
+    }

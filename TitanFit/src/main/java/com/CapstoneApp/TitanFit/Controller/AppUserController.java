@@ -6,6 +6,7 @@ import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -59,21 +60,8 @@ public class AppUserController {
         return "redirect:/users";
     }
 
-//    // Employee-specific task hub
-//    @GetMapping("/workouts")
-//    public String usersWorkoutHub(Principal principal, Model model) {
-//        // Get the logged-in employee's email from the Principal object
-//        AppUser appUser = appUserService.findByEmail(principal.getName());
-//
-//        // Fetch the tasks for the logged-in employee
-//        List<Workout> workouts = workoutService.getWorkoutByAppUser(appUser);
-//
-//        // Add tasks and employee data to the model
-//        model.addAttribute("workouts", workouts);
-//        model.addAttribute("appUser", appUser);
-//
-//        return "workout-hub";  // Return the Thymeleaf view for displaying employee tasks
-//    }
+
+
 
 
 }

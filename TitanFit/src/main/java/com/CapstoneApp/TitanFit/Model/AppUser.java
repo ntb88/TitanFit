@@ -8,6 +8,8 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "users")
@@ -16,8 +18,7 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @NotBlank(message = "Name is required")
+
     private String name;
 
     @Column(nullable = false, unique = true)
@@ -34,7 +35,7 @@ public class AppUser {
     private Role role;
 
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<WorkoutPlan> workoutPlans;
+    @OneToMany(mappedBy = "user")
+    private List<WorkoutPlan> selectedWorkoutPlans;
 
 }

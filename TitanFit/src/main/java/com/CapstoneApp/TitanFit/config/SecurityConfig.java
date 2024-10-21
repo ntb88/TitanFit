@@ -22,9 +22,8 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/login", "/register").permitAll()  // Public access
-                        .requestMatchers("/users/tasks/**").hasRole("USER")  // App User task hub
-                        .requestMatchers("/users/**", "/tasks/upload").hasRole("ADMIN")  // Admin access for managing employees and uploading tasks
-                        .requestMatchers("/tasks/**").hasRole("ADMIN")  // Admin-only access for managing tasks
+                        .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")  // App User task hub
+                        .requestMatchers("/admin/**").hasRole("ADMIN")  // Admin-only access for managing tasks
                         .anyRequest().authenticated())  // All other requests require authentication
 
                 .formLogin(formLogin -> formLogin
@@ -35,9 +34,9 @@ public class SecurityConfig {
                                 String role = grantedAuthority.getAuthority();
                                 try {
                                     if (role.equals("ROLE_ADMIN")) {
-                                        response.sendRedirect("/admin/adminpage");  // Admin redirect
+                                        response.sendRedirect("/admin");  // Admin redirect
                                     } else if (role.equals("ROLE_USER")) {
-                                        response.sendRedirect("/user/userpage");  // Users redirect
+                                        response.sendRedirect("/user");  // Users redirect
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();

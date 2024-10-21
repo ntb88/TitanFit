@@ -4,6 +4,7 @@ import com.CapstoneApp.TitanFit.Model.AppUser;
 import com.CapstoneApp.TitanFit.Model.Role;
 import com.CapstoneApp.TitanFit.Repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,5 +63,13 @@ public class AppUserService {
     public void deleteUser(Long id) {
         AppUser user = getUserById(id);
         appUserRepository.deleteById(id);
+    }
+
+
+    public AppUser getCurrentUser() {
+        // Logic to fetch the currently authenticated user from the security context
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        return appUserRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
     }
 }
